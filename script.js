@@ -7,7 +7,7 @@ var col = 0; //current letter for that attempt
 
 var gameOver = false;
 // var word = "SQUID";
-var wordList = ["ABABA", "ABACA", "ABACO", "ABADA", "ABADI", "ABAJA", "ABAJE", "ABAJO", "ABALA", "ABALE", "ABALO", "ABANA", "ABANE", "ABANO", "ABAÑA", "ABAÑE", "ABAÑO", "ABASI", "ABATA", "ABATE", "ABATI", "ABATO", "ABECE", "ABEJA", "ABETE", "ABETO", "ABIAR", "ABIAS", "ABINA", "ABINE", "ABINO", "ABISO", "ABITA", "ABITE", "ABITO", "ABOBA", "ABOBE", "ABOBO", "ABOCA", "ABOCO", "ABOFA", "ABOFE", "ABOFO", 
+var guessList = ["ABABA", "ABACA", "ABACO", "ABADA", "ABADI", "ABAJA", "ABAJE", "ABAJO", "ABALA", "ABALE", "ABALO", "ABANA", "ABANE", "ABANO", "ABAÑA", "ABAÑE", "ABAÑO", "ABASI", "ABATA", "ABATE", "ABATI", "ABATO", "ABECE", "ABEJA", "ABETE", "ABETO", "ABIAR", "ABIAS", "ABINA", "ABINE", "ABINO", "ABISO", "ABITA", "ABITE", "ABITO", "ABOBA", "ABOBE", "ABOBO", "ABOCA", "ABOCO", "ABOFA", "ABOFE", "ABOFO", 
     "ABOGA", "ABOGO", "ABOLI", "ABONA", "ABONE", "ABONO", "ABOYA", "ABOYE", "ABOYO", "ABOZO", "ABRAN", "ABRAS", "ABREN", "ABRES", "ABRIA", "ABRID", "ABRIL", "ABRIO", "ABRIR", "ABRIS", "ABSIT", "ABUBO", "ABUCE", "ABUJE", "ABURA", "ABURE", "ABURO", "ABUSA", "ABUSE", "ABUSO", "ABUZA", "ABUZO", "ACABA", "ACABE", "ACABO", "ACAMA", "ACAME", "ACAMO", "ACANA", "ACARA", "ACARE", "ACARO", "ACASO", "ACATA", "ACATE", "ACATO", "ACEBO", "ACECE", "ACEDA", "ACEDE", "ACEDO", "ACEMA", "ACEÑA", "ACEPA", "ACEPE", "ACEPO", "ACERA", "ACERE", "ACERO", "ACETA", "ACETO", "ACEZA", "ACEZO", "ACHIN", "ACHIS", "ACIAL", "ACIAR", "ACIDA", "ACIDO", "ACIJE", "ACILO", "ACIMO", "ACION", "ACLES", "ACLLA", "ACMES", "ACNES", "ACOCA", "ACOCO", "ACODA", "ACODE", "ACODO", "ACOGE", "ACOGI", "ACOJA", "ACOJO", "ACOLA", "ACOLE", "ACOLO", "ACOPA", "ACOPE", "ACOPO", "ACORA", "ACORE", "ACORO", "ACOSA", "ACOSE", 
     "ACOSO", "ACOTA", "ACOTE", "ACOTO", "ACRES", "ACROE", "ACROY", "ACTAS", "ACTEA", "ACTOR", "ACTOS", "ACTUA", "ACTUE", "ACTUO", "ACUDA", "ACUDE", "ACUDI", "ACUDO", "ACUEA", "ACUEO", "ACULA", "ACULE", "ACULO", "ACUNA", "ACUNE", "ACUNO", "ACUÑA", "ACUÑE", "ACUÑO", "ACURE", "ACUSA", "ACUSE", "ACUSO", "ACUTA", "ACUTI", "ACUTO", "ACUYO", "ADALA", "ADAMA", "ADAME", "ADAMO", "ADAZA", "ADEMA", "ADEME", "ADEMO", "ADIAD", "ADIAN", "ADIAR", "ADIAS", "ADIEN", "ADIES", "ADIOS", "ADIVA", "ADIVE", "ADOBA", "ADOBE", "ADOBO", "ADORA", "ADORE", "ADORO", "ADOSA", "ADOSE", "ADOSO", "ADRAD", "ADRAL", "ADRAN", "ADRAR", "ADRAS", "ADREN", "ADRES", "ADUAR", "ADUCE", "ADUCI", "ADUFE", "ADUJA", "ADUJE", "ADUJO", "ADULA", "ADULE", "ADULO", "ADUNA", "ADUNE", "ADUNO", "ADURA", "ADURE", "ADURI", "ADURO", "ADVEN", "AEDAS", "AEDOS", "AEREA", "AEREO", "AETAS", "AFACA", "AFACE", "AFAGA", "AFAGO", 
     "AFAMA", "AFAME", "AFAMO", "AFANA", "AFANE", "AFANO", "AFARA", "AFARE", "AFATA", "AFATE", "AFATO", "AFEAD", "AFEAN", "AFEAR", "AFEAS", "AFEEN", "AFEES", "AFIAR", "AFICE", "AFIJA", "AFIJO", "AFILA", "AFILE", "AFILO", "AFINA", "AFINE", "AFINO", "AFIZO", "AFLUI", "AFOCA", "AFOCO", "AFOFA", "AFOFE", "AFOFO", "AFOGA", "AFOGO", "AFONA", "AFONO", "AFORA", "AFORE", "AFORO", "AFOSA", "AFOSE", "AFOSO", "AFTAS", "AFUFA", "AFUFE", "AFUFO", "AFUMA", "AFUME", "AFUMO", "AGACE", "AGAMI", "AGANA", "AGANE", "AGANO", "AGAPE", "AGATA", "AGAVE", "AGIOS", "AGITA", "AGITE", "AGITO", "AGNUS", "AGOLA", "AGOLE", "AGOLO", "AGORA", "AGORE", "AGORO", "AGOTA", "AGOTE", "AGOTO", "AGRAS", "AGRAZ", "AGRES", "AGRIA", "AGRIE", "AGRIO", "AGROR", "AGROS", "AGUAD", "AGUAI", "AGUAN", "AGUAR", "AGUAS", "AGUAY", "AGUCE", "AGUDA", "AGUDO", "AGUEN", "AGUES", "AGUIN", "AGUIO", "AGUJA", "AGUTI", "AGUZA", 
@@ -121,24 +121,38 @@ var wordList = ["ABABA", "ABACA", "ABACO", "ABADA", "ABADI", "ABAJA", "ABAJE", "
     "ZAMPE", "ZAMPO", "ZANAS", "ZANCA", "ZANCO", "ZANGA", "ZANJA", "ZANJE", "ZANJO", "ZAPAD", "ZAPAN", "ZAPAR", "ZAPAS", "ZAPEA", "ZAPEE", "ZAPEN", "ZAPEO", "ZAPES", "ZAQUE", "ZARBO", "ZARCA", "ZARCO", "ZARES", "ZARJA", "ZARPA", "ZARPE", "ZARPO", "ZARZA", "ZARZO", "ZATAS", "ZAYAS", "ZAZAS", "ZAZOS", "ZEBRA", "ZEDAS", "ZEGRI", "ZEINA", "ZEJEL", "ZENDA", "ZENDO", "ZENES", "ZENIT", "ZETAS", "ZINCS", "ZOCAD", "ZOCAN", "ZOCAR", "ZOCAS", "ZOCLO", "ZOCOS", "ZOFRA", "ZOILO", "ZOIZO", "ZOLLE", "ZOMAS", "ZOMBI", "ZOMOS", "ZOMPA", "ZOMPO", "ZONAL", "ZONAS", "ZONDA", "ZONTA", "ZONTO", "ZONZA", "ZONZO", "ZOPAS", "ZOPES", "ZOPOS", "ZOQUE", "ZORRA", "ZORRO", "ZOTAL", "ZOTES", "ZOTOL", "ZUAVO", "ZUBIA", "ZUDAS", "ZUECA", "ZUECO", "ZUELA", "ZUIZA", "ZULLA", "ZULLE", "ZULLO", "ZULUS", "ZUMAS", "ZUMBA", "ZUMBE", "ZUMBO", "ZUMOS", "ZUNAS", "ZUNZA", "ZUÑAN", "ZUÑAS", "ZUÑEN", "ZUÑES", 
     "ZUÑIA", "ZUÑID", "ZUÑIR", "ZUÑIS", "ZUÑOS", "ZUPIA", "ZURAS", "ZURBA", "ZURCE", "ZURCI", "ZURDA", "ZURDE", "ZURDI", "ZURDO", "ZUREA", "ZUREE", "ZUREO", "ZUROS", "ZURRA", "ZURRE", "ZURRI", "ZURRO", "ZURZA", "ZURZO", "ZUZAR", "ZUZON"]
 
-var guessList = wordList;
+var wordList = ["ABEJA", "ABONO", "ABRAN",  "ABREN", "ABRES", "ABRIA", "ABRID", "ABRIL", "ABRIO", "ABRIR",  "ACABA", "ACABO", "ACARO", "ACASO", "ACIDO", "ACTOR", "ACTOS", "ACTUA", "ACTUE", "ADIOS", "ADOBE", "AEREA", "AEREO", "AFANO", "AFILA", "AFILE", "AFILO", "AFINA", "AGAPE", "AGATA", "AGUAS", "AGUDA", "AGUDO", "AGUJA", "AHOGA", "AHOGO", "AHORA", "AIRES", "AISLA", "AISLO", "AJENA", 
+"AJENO", "ALADA", "ALADO", "ALAMO", "ALFIL", "ALGUN", "ALIAS", "ALTAR", "ALTAS", "ALTOS", "ALZAR", "AMABA", "AMADA", "AMADO", "AMBAR", "AMBAS", "AMBOS", "AMEBA", "AMENA", "AMENO", "AMIGA", "AMIGO", "ANCHA", "ANCHO", "ANCLA", "ANDAR", "ANEXO", "ANGEL", "ANIMA", "ANSIA", "ANSIO", "ANTRO", "ANUAL", "APEGO", "APODO", "APOYO", "APTAS", "APTOS", "APURO", "AQUEL", "ARAÑA", "ARBOL", "ARCAS", "ARCOS", "ARDER", "ARDID", "ARDOR", "ARDUA", "ARDUO", "ARENA", "ARMAR", "AROMA", "AROMO", "ARPIA", "ARPON", "ARROZ", "ARTES", "ASADO", "ASEOS", "ASILO", "ATADO", "ATEOS", "ATOMO", "ATRAE", "ATRAS", "ATRIL", "ATROZ", "AUDAZ", "AUDIO", "AUGES", "AULAS", "AULLA", "AUNAR", "AURAS", "AUREA", "AUTOR", "AUTOS", "AVARA", "AVARO", "AVION", "AVISO", "AXILA", "AYUDA", "AYUDO", "AYUNA", "AYUNO", "AZOTE", "BACHE", "BAHIA", "BAILA", "BAILE", "BAILO", "BAJAR", "BALAS", "BALON", "BALSA", "BAMBU", 
+"BANAL", "BANCA", "BANCO", "BANDA", "BANDO", "BAÑAR", "BAÑOS", "BARBA", "BARCA", "BARCO", "BARDO", "BARES", "BASTA", "BEBER", "BELLA", "BELLO", "BESAR", "BESOS", "BILIS", "BLUES", "BLUSA", "BOCAS", "BOLOS", "BOLSA", "BOLSO", "BOMBA", "BORDE", "BORRA", "BOTAS", "BOTES", "BOTIN", "BOTON", "BOXEO", "BOZAL", "BRASA", "BRAVA", "BRAVO", "BREVE", "BRIOS", "BRISA", "BROMA", "BRUJA", "BRUJO", "BRUMA", "BRUTA", "BRUTO", "BUCLE", "BUENA", "BUENO", "BUFET", "BUFON", "BUHOS", "BUJES", "BUJIA", "BULTO", "BURDA", "BURDO", "BURLA", "BUSCA", "BUSCO", "BUSTO", "BUZON", "CABLE", "CABRA", "CACAO", "CAIDA", "CAIDO", "CAJON", "CALDO", "CALIZ", "CALMA", "CALMO", "CALOR", "CAMAS", "CAMPO", "CANAL", "CANJE", "CANOA", "CANSA", "CANSE", "CANSO", "CANTA", "CANTE", "CANTO", "CAÑON", "CAÑOS", "CAOBA", "CAPAS", "CAPAZ", "CARAS", "CARDO", "CARGA", "CARGO", "CARNE", "CAROS", "CARPA", "CARRO", 
+"CASAR", "CASOS", "CASPA", "CASTA", "CASTO", "CAUCE", "CAUSA", "CAUTA", "CAUTO", "CAZAN", "CAZAR", "CEDER", "CEDRO", "CEIBO", "CELOS", "CENAR", "CENSO", "CERCA", "CHAVO", "CHICA", "CHICO", "CHIVO", "CHOZA", "CICLO", "CIEGA", "CIEGO", "CIELO", "CIENO", "CIFRA", "CIMAS", "CINTA", "CISNE", "CITAR", "CLARA", "CLARO", "CLASE", "CLAVE", "CLORO", "COPLA", "COBRA", "COBRE", "COFRE", "COLOR", "COMBO", "COMED", "COMEN", "COMER", "COMIC", "COMUN", "CONDE", "COPAS", "COPIA", "CORAL", "CORTA", "CORTE", "CORTO", "COSAS", "COSER", "COSOS", "COSTE", "CREAD", "CREAN", "CREAR", "CRECE", "CRECI", "CREDO", "CREED", "CREEN", "CREER", "CREES", "CREMA", "CRIAR", "CROMO", "CRONO", "CRUCE", "CRUDA", "CRUDO", "CRUEL", "CUBOS", "CUERO", "CUEVA", "CULPA", "CULTA", "CULTO", "CUNAS", "CURAN", "CURAR", "CURAS", "CURSO", "CURVA", "CURVO", "CUTIS", "DADOS", "DAÑAR", "DAÑOS", "DARDO", 
+"DATOS", "DEBER", "DEBIL", "DEBUT", "DECIR", "DEDOS", "DEJAR", "DENSA", "DENSO", "DESDE", "DESEA", "DESEE", "DESEO", "DEUDA", "DICHA", "DIGNA", "DIGNO", "DIJES", "DIOSA", "DOBLE", "DOCIL", "DOGMA", "DOLER", "DOLOR", "DOMAR", "DONDE", "DONES", "DOPAR", "DORAR", "DOTAR", "DOTES", "DRAMA", "DROGA", "DUCHA", "DUDAN", "DUDAR", "DUDAS", "DUDEN", "DUDES", "DUELA", "DUELE", "DUELO", "DUEÑA", "DUEÑO", "DUETO", "DULCE", "DUPLA", "DURAR", "DUROS", "EBANO", "EBRIA", "EBRIO", "ECHAR", "ELEGI", "ELEVO", "ELFOS", "ELIGE", "ELIJA", "ELIJE", "ELIJO", "ELITE", "ELLAS", "ELLOS", "ELOTE", "ELUDA", "ELUDE", "ELUDO", "EMANA", "EMANE", "EMANO", "EMITA", "EMITE", "EMITI", "EMITO", "ENANA", "ENANO", "ENERO", "ENOJO", "ENTES", "ENTRA", "ENTRE", "ENVIA", "ENVIE", "ENVIO", "EONES", "EPICA", "EPICO", "EPOCA", "ERROR", "ESPIA", "ESTAD", "ESTAN", "ESTAR", "ESTAS", "ESTOS", "ESTOY", "ETAPA", 
+"ETICA", "ETICO", "ETNIA", "EVITA", "EVITE", "EVITO", "EVOCA", "EVOCO", "EXIGE", "EXIGI", "EXIJA", "EXIJO", "EXITO", "EXODO", "FAJAR", "FALDA", "FALLA", "FALLE", "FALLO", "FALSA", "FALSO", "FALTA", "FALTE", "FALTO", "FANGO", "FAROL", "FAROS", "FARSA", "FATAL", "FAUNA", "FAUNO", "FAVOR", "FECHA", "FELIZ", "FEROZ", "FERIA", "FIBRA", "FICHA", "FICUS", "FIJAR", "FILMA", "FILME", "FILOS", "FINAL", "FINCA", "FIRMA", "FIRME", "FLACA", "FLACO", "FLAMA", "FLOJA", "FLOJO", "FLORA", "FLOTA", "FLOTE", "FLUIR", "FLUJO", "FLUOR", "FLUYE", "FOBIA", "FOGON", "FONDO", "FORMA", "FOSAS", "FOSIL", "FOTON", "FOTOS", "FREIR", "FRENO", "FRESA", "FRUTO", "FUEGO", "FUGAR", "FUGAS", "FUGAZ", "FUMAR", "FUNDA", "FURIA", "FUROR", "FUTIL", "GAITA", "GAJES", "GAJOS", "GALAS", "GALLO", "GANAD", "GANAN", "GANAR", "GANAS", "GARZA", "GASES", "GASTO", "GATOS", "GEMIR", "GENES", "GENIO", "GENTE", 
+"GESTA", "GESTO", "GILES", "GIMEN", "GIRAR", "GIROS", "GNOMO", "GOLPE", "GORRA", "GORRO", "GOTAS", "GOTEA", "GOTEO", "GOZAD", "GOZAN", "GOZAR", "GRAMO", "GRANO", "GRATO", "GRIAL", "GRIFO", "GRITA", "GRITE", "GRITO", "GRUMO", "GRUPO", "GRUTA", "GUIAR", "GUSTO", "HABER", "HABIA", "HABIL", "HABLO", "HABRA", "HACED", "HACEN", "HACER", "HACES", "HACHA", "HADAS", "HEBRA", "HECHO", "HELIO", "HERIR", "HIELO", "HILOS", "HIMNO", "HITOS", "HOGAR", "HONDA", "HONDO", "HONGO", "HONOR", "HONRA", "HONRE", "HONRO", "HORAS", "HORDA", "HORNO", "HOTEL", "HOYOS", "HUECA", "HUECO", "HUELO", "HUESO", "HUEVO", "HUIDA", "HUMOR", "HUMOS", "HUMUS", "HUYAN", "HUYAS", "HUYEN", "HUYES", "ICONO", "IDEAL", "IDEAN", "IDEAR", "IDEAS", "IDOLO", "IGNEA", "IGNEO", "IGUAL", "ILESA", "ILESO", "IMPAR", "IMPIA", "IMPIO", "INCAS", "INDIA", "INDIO", "IONES", "ISLAM", "ISLAS", "ISTMO", "JALAR", "JAMON", 
+"JAQUE", "JAULA", "JEFAS", "JEFES", "JERGA", "JODEN", "JODER", "JOVEN", "JOYAS", "JUDAS",  "JUEGA", "JUEGO", "JUGAR", "JUGOS", "JULIO", "JUNCO", "JUNIO", "JUNTA", "JUNTE", "JUNTO", "JURAD", "JURAN", "JURAR", "JURAS", "JUREN", "JUSTA", "JUSTO", "JUZGA", "JUZGO", "LABIA", "LABIL", "LAICA", "LAICO", "LANAR", "LANAS", "LAPSO", "LARGO", "LARVA", "LASER", "LATIN", "LAVAR", "LAZOS", "LECHE", "LECHO", "LEGAL", "LEGAR", "LEJOS", "LEMUR", "LENTE", "LENTO", "LEÑOS", "LEONA", "LETAL", "LETRA", "LEYES", "LIBRA", "LIBRE", "LIBRO", "LILAS", "LIMAR", "LIMBO", "LIMON", "LINCE", "LINDA", "LINDO", "LINEA", "LLAGA", "LLAMA", "LLAME", "LLAMO", "LLAVE", "LLEGA", "LLEGO", "LLENA", "LLENE", "LLENO", "LLEVA", "LLEVE", "LLEVO", "LLORA", "LLORE", "LLORO", "LOBOS", "LOCOS", "LOGIA", "LOGOS", "LOGRO", "LOICA", "LOTOS", "LUCEN", "LUCES", "LUCIR", "LUCRO", "LUEGO", "LUGAR", "LUNAR", "LUNAS", "LUZCA", "LUZCO", "MADRE", "MAFIA", "MAGAS", "MAGIA", "MAGMA", 
+"MAGNA", "MAGNO", "MANDO", "MANOS", "MANSA", "MANSO", "MANTA", "MANTO", "MAPAS", "MARTE", "MASON", "MATAR", "MAYAS", "MAYOR", "MECER", "MEDIA", "MEDIO", "MEJOR", "MENOR", "MENOS", "MENTA", "MENTE", "METAL", "METER", "MIEDO", "MILES", "MIMAR", "MIMOS", "MINAR", "MINAS", "MIOPE", "MIRAD", "MIRAN", "MIRAR", "MIRAS", "MIREN", "MIRES", "MIRLO", "MISAS", "MISIL", "MISMA", "MISMO", "MITAD", "MITIN", "MITOS", "MIXTA", "MIXTO", "MOJAR", "MOLDE", "MOLER", "MOMIA", "MUNDO", "MONJA", "MONJE", "MONOS", "MONTA", "MONTE", "MOÑOS", "MORAL", "MORIR", "MOTOR", "MOVER", "MUCHA", "MUCHO", "MUDAR", "MUDEZ", "MUDOS", "MUECA", "MUERA", "MUERE", "MUERO", "MUEVA", "MUEVE", "MUEVO", "MUGRE", "MUJER", "MURAL", "MURGA", "MURIO", "MUROS", "MUSEO", "MUTUA", "MUTUO", "NACER", "NADAR", "NADIE", "NAIPE", "NECIA", "NECIO", "NEGAR", "NEGRA", "NEGRO", "NEVAR", "NEXOS", "NICHO", "NIEVE", "NIMIO", 
+"NINFA", "NIÑAS", "NIÑEZ", "NIÑOS", "NIVEL", "NOBLE", "NOCHE", "NODOS", "NORTE", "NOTAR", "NOTAS", "NUBES", "NUDOS", "NUEVA", "NUEVE", "NUEVO", "NULOS", "NUNCA", "NUTRA", "NUTRE", "NUTRI", "ÑANDU", "OASIS", "OBELO", "OBESA", "OBESO", "OBICE", "OBITO", "OBLEA", "OBOES", "OBOLO", "OBRAD", "OBRAN", "OBRAR", "OBRAS", "OBREN", "OBRES", "OBSTA", "OBSTE", "OCASO", "OCRES", "ODIAR", "ODIOS", "OESTE", "OGROS", "OIDOS", "OJALA", "OLMOS", "ONDAS", "ONZAS", "OPACA", "OPACO", "OPALO", "OPERA", "OPTAR", "ORATE", "ORBES", "ORCAS", "ORCOS", "ORDEN", "OREJA", "ORUGA", "OSTIA", "OSTRA", "OTOÑO", "OTRAS", "OTROS", "OVALO", "OVEJA", "OVINO", "OVNIS", "OVULO", "OXIDO", "OZONO", "PACTO", "PADRE", "PAGAR", "PAJAR", "PAJAS", "PALCO", "PALMA", "PALOS", "PALTA", "PANDA", "PANEL", "PANES", "PANZA", "PAÑAL", "PAÑOS", "PAPAL", "PAPAS", "PAPEL", 
+"PARAR", "PARCA", "PARCO", "PARED", "PARES", "PARIR", "PARRA", "PARTA", "PARTE", "PARTI", "PARTO", "PASEA",  "PASEN", "PASEO", "PASES", "PASOS", "PASTA", "PATIN", "PATIO", "PAUSA", "PAUTA", "PAVOR", "PECAR", "PECAS", "PECES", "PEDIR", "PEGAR", "PEINE", "PELAR", "PELON", "PELOS", "PENAL", "PENAR", "PENAS", "PENCA", "PEÑAS", "PEÑON", "PERLA", "PERRA", "PERRO", "PESAR", "PESOS", "PIANO", "PICOR", "PILAR", "PILAS", "PINOS", "PINTA", "PIÑAS", "PIÑON", "PIOJO", "PIOLA", "PIRCA", "PISAD", "PISAN", "PISAR", "PISAS", "PISEN", "PISES", "PISOS", "PISTA", "PLAGA", "PLANA", "PLANO", "PLATA", "PLATO", "PLAYA", "PLAZA", "PLAZO", "PLEBE", "PLENA", "PLENO", "PLUMA", "POBRE", "POCAS", "POCOS", "PODER", "POEMA", "POETA", "POLAR", "POLEA", "POLEN", "POLLO", "POLOS", "POLVO", "POMOS", "POMPA", "PONER", "POSAR", "POTRA", "POTRO", "POZOS", "PRADO", "PRESA", "PROSA", 
+"PUDOR", "PUEDA", "PUEDE", "PUEDO", "PULGA", "PULIR", "PULPA", "PULPO", "PULSA", "PULSO", "PUMAS", "PUNTA", "PUNTO", "PUÑAL", "PUÑOS", "PURGA",  "QUEDO", "QUEJA", "QUENA", "QUESO", "QUIEN", "QUISE", "QUISO", "RABIA", "RADAR", "RADIO", "RAMOS", "RAMPA", "RANAS", "RANGO", "RAPAZ", "RAPTO", "RARAS", "RAROS", "RASGO", "RATAS", "RATOS", "RATON", "RAYAR", "RAYON", "RAYOS", "RAZAS", "RAZON", "RECTA", "RECTO", "REDES", "REGAR", "REGIR", "REGLA", "REHEN", "REINA", "REINO", "RELOJ", "REMAR", "REMOS", "RETAR", "REYES", "REZAD", "REZAN", "REZAR", "REZAS", "RICOS", "RIGOR", "RIMAR", "RINDA", "RINDE", "RINDO", "RIÑAS", "RIÑON", "RIPIO", "RISAS", "RITMO", "RITOS", "RIZAR", "ROBAR", "ROBLE", "ROCIO", "RODAR", "ROGAR", "ROJAS", "ROJEZ", "ROJOS", "ROLES", "ROLLO", "ROMBO", "ROMPA", "ROMPE", "ROMPI", "RONDA", "ROPAS", "ROSAL", "ROSAS", "ROTAR", "ROTOS", 
+"ROZAR", "RUBOR", "RUDAS", "RUDOS", "RUECA", "RUEDA", "RUEDO", "RUEGA", "RUEGO", "RUGIR", "RUIDO", "RUINA", "RULOS", "RUMBO", "RUMOR", "RURAL", "RUTAS", "SABED", "SABEN", "SABER", "SABES", "SABIA", "SABIO", "SABLE", "SABOR", "SACRA", "SACRO", "SAGAS", "SAGAZ", "SALEN", "SALES", "SALGA", "SALGO", "SALIA", "SALMO", "SALON", "SALSA", "SALTO", "SALUD", "SANAD", "SANAN", "SANAR", "SANAS", "SANTA", "SANTO", "SAPOS", "SATAN", "SATEN", "SAUNA", "SAVIA", "SAZON", "SECAN", "SECAR", "SECAS", "SECOS", "SEDAS", "SEDES", "SELLA", "SELLO", "SELVA", "SEMEN", "SENDA", "SENIL", "SENOS", "SENTI", "SEÑAL", "SEÑAS", "SEÑOR", "SERAN", "SERAS", "SERES", "SERIA", "SERIE", "SERIO", "SEXOS", "SEXTA", "SEXTO", "SIETE", "SIGLA", "SIGLO", "SIGNO", "SILLA", "SILOS", "SIMIL", "SIMIO", "SIRVA", "SIRVE", "SIRVO", "SISMO", "SOBRE", "SOGAS", "SOLAR", "SOLAS", "SOLES", "SOLOS", "SOMOS", "SONAR", 
+"SONDA", "SOÑAD", "SOÑAR", "SORDA", "SORDO", "SUAVE", "SUBAN", "SUBEN", "SUBES", "SUBIA", "SUBID", "SUBIO", "SUBIR", "SUBIS", "SUCIA", "SUCIO", "SUDAR", "SUDOR", "SUELA", "SUELO", "SUENA", "SUENE", "SUENO", "SUEÑA", "SUEÑE", "SUEÑO", "SUERO", "SUFRA", "SUFRE", "SUFRI", "SUFRO", "SUMAR", "SUMAS", "SUMIR", "SUTIL", "SUYAS", "SUYOS", "TABLA", "TACHO", "TACON", "TACOS", "TACTO", "TAJOS", "TALAR", "TALLA", "TALLE", "TALLO", "TALON", "TANDA", "TANGO", "TANTA", "TANTO", "TAPAN", "TAPAR", "TAPAS", "TAPIA", "TAPIR", "TAPIZ", "TARDE", "TAREA", "TAROT", "TARRO", "TARTA", "TAURO", "TAZAS", "TECHO", "TECLA", "TEDIO", "TEJAR", "TEJAS", "TEJED", "TEJEN", "TEJER",  "TELAR", "TELAS", "TELON", "TEMAS", "TEMED", "TEMEN", "TEMER", "TEMES", "TEMOR", "TEMPO", "TENAZ", "TENED", "TENER", "TENES", "TENGA", "TENGO", "TENIA", "TENIS", "TENOR", "TENSA", 
+"TENSO", "TENUE", "TEÑIR", "TERSA", "TERSO", "TESIS", "TEXTO", "TIARA", "TIBIA", "TIBIO", "TIENE", "TIESA", "TIESO", "TIFON", "TIGRE", "TILDE", "TIMAR", "TIMBA", "TINTA", "TINTE", "TINTO", "TIRAD", "TIRAN", "TIRAR", "TIRAS", "TIREN", "TOCAD", "TOCAN", "TOCAR", "TOCAS", "TODAS", "TODOS", "TOLDO", "TOMAD", "TOMAN", "TOMAR", "TOMAS", "TOMEN", "TOMES", "TONAL", "TONEL", "TONOS", "TONTA", "TONTO", "TOPAR", "TOPES", "TOPOS", "TOQUE", "TORAX", "TORNO", "TOROS", "TORPE", "TORRE", "TORSO", "TORTA", "TOSCA", "TOSCO", "TOSER", "TOSES", "TOTAL", "TOTEM", "TRABA", "TRABE", "TRABO", "TRAED", "TRAEN", "TRAER", "TRAES", "TRAGA", "TRAGO", "TRAIA", "TRAJE", "TRAJO", "TRAMA", "TRAMO", "TRATA", "TRATE", "TRATO", "TRAZA", "TRAZO", "TRECE", "TREPA", "TREPE", "TREPO", "TRETA", "TRIBU", "TRIGO", "TRINO", "TRIOS", "TRONO", "TROPA", "TROTE", "TROZO", "TRUCO", "TUBOS", "TUMBA", 
+"TUMOR", "TUNEL", "TURBO", "TURNO", "TUTOR", "TUYAS", "TUYOS", "UNGIR", "UNICA", "UNICO", "UNIDA", "UNIDO", "UNION", "UNIRA", "URBES", "URNAS", "USADA", "USADO", "USTED", "USUAL", "UTERO", "VACAS", "VACIA", "VACIO", "VACUA", "VACUO", "VAGON", "VAGOS", "VAHOS", "VAINA", "VALEN", "VALER", "VALGA", "VALGO", "VALLE", "VALOR", "VAMOS", "VARON", "VASOS", "VASTO", "VAYAN", "VAYAS", "VEAIS", "VECES", "VEDAS", "VEIAN", "VEIAS", "VEJEZ", "VELAR", "VELAS", "VELOS", "VELOZ", "VENGO", "VENIR", "VENUS", "VERAZ", "VERBO", "VERDE", "VERSO", "VIAJA", "VIAJE", "VIAJO", "VIBRA", "VIBRO", "VICIO", "VIDAS", "VIDEO", "VIEJA", "VIEJO", "VIENE", "VIGAS", "VIGIA", "VIGOR", "VILES", "VILLA", "VIMOS", "VINOS", "VIRAL", "VIRGO", "VIRUS", "VISOR", "VISTA", "VISTO", "VITAL", "VIVAZ", "VIVIR", "VIVOS", "VOCES", "VOLAR", "VORAZ", "VOTOS", "VUELA", "VUELE", "VUELO", "VULGO", "VULVA", "YEGUA", 
+"YERBA", "YOGUI", "YUYOS", "ZARES", "ZARZA", "ZEBRA", "ZOMBI", "ZONAS", "ZORRA", "ZORRO"];
 
+// Combinamos las listas de palabras
 guessList = guessList.concat(wordList);
 
-var word = wordList[Math.floor(Math.random()*wordList.length)].toUpperCase();
+var word = wordList[Math.floor(Math.random() * wordList.length)].toUpperCase();
 console.log(word);
 
-window.onload = function(){
+window.onload = function () {
     intialize();
 }
 
-
 function intialize() {
-
-    // Create the game board
+    // Crear el tablero del juego
     for (let r = 0; r < height; r++) {
         for (let c = 0; c < width; c++) {
-            // <span id="0-0" class="tile">P</span>
             let tile = document.createElement("span");
             tile.id = r.toString() + "-" + c.toString();
             tile.classList.add("tile");
@@ -147,11 +161,11 @@ function intialize() {
         }
     }
 
-    // Create the key board
+    // Crear el teclado
     let keyboard = [
         ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
-        ["A", "S", "D", "F", "G", "H", "J", "K", "L", " "],
-        ["Enter", "Z", "X", "C", "V", "B", "N", "M", "⌫" ]
+        ["A", "S", "D", "F", "G", "H", "J", "K", "L", "Ñ"],
+        ["Enter", "Z", "X", "C", "V", "B", "N", "M", "⌫"]
     ]
 
     for (let i = 0; i < keyboard.length; i++) {
@@ -170,9 +184,9 @@ function intialize() {
             else if (key == "⌫") {
                 keyTile.id = "Backspace";
             }
-            else if ("A" <= key && key <= "Z") {
+            else {
                 keyTile.id = "Key" + key; // "Key" + "A";
-            } 
+            }
 
             keyTile.addEventListener("click", processKey);
 
@@ -185,40 +199,40 @@ function intialize() {
         }
         document.body.appendChild(keyboardRow);
     }
-    
 
-    // Listen for Key Press
+    // Escuchar la pulsación de teclas
     document.addEventListener("keyup", (e) => {
         processInput(e);
     })
 }
 
 function processKey() {
-    e = { "code" : this.id };
+    e = { "code": this.id };
     processInput(e);
 }
 
 function processInput(e) {
-    if (gameOver) return; 
+    if (gameOver) return;
 
-    // alert(e.code);
-    if ("KeyA" <= e.code && e.code <= "KeyZ") {
+    let keyPressed = e.code.replace("Key", "");
+
+    if ((e.code.startsWith("Key") && keyPressed.match(/[A-ZÑ]/)) || e.code === "Digit9") {
+        if (e.code === "Digit9") keyPressed = "Ñ";
         if (col < width) {
             let currTile = document.getElementById(row.toString() + '-' + col.toString());
             if (currTile.innerText == "") {
-                currTile.innerText = e.code[3];
+                currTile.innerText = keyPressed;
                 col += 1;
             }
         }
     }
     else if (e.code == "Backspace") {
         if (0 < col && col <= width) {
-            col -=1;
+            col -= 1;
         }
         let currTile = document.getElementById(row.toString() + '-' + col.toString());
         currTile.innerText = "";
     }
-
     else if (e.code == "Enter") {
         update();
     }
@@ -233,44 +247,43 @@ function update() {
     let guess = "";
     document.getElementById("answer").innerText = "";
 
-    //string up the guesses into the word
+    // Formar la palabra con las letras adivinadas
     for (let c = 0; c < width; c++) {
         let currTile = document.getElementById(row.toString() + '-' + c.toString());
         let letter = currTile.innerText;
         guess += letter;
     }
 
-    /*guess = guess.toLowerCase();*/
     console.log(guess);
 
     if (!guessList.includes(guess)) {
         document.getElementById("answer").innerText = "Not in word list";
         return;
     }
-    
-    //start processing guess
+
+    // Procesar la adivinanza
     let correct = 0;
 
-    let letterCount = {}; //keep track of letter frequency, ex) KENNY -> {K:1, E:1, N:2, Y: 1}
+    let letterCount = {};
     for (let i = 0; i < word.length; i++) {
         let letter = word[i];
 
         if (letterCount[letter]) {
-           letterCount[letter] += 1;
-        } 
+            letterCount[letter] += 1;
+        }
         else {
-           letterCount[letter] = 1;
+            letterCount[letter] = 1;
         }
     }
 
     console.log(letterCount);
 
-    //first iteration, check all the correct ones first
+    // Primera iteración, verificar las letras correctas
     for (let c = 0; c < width; c++) {
         let currTile = document.getElementById(row.toString() + '-' + c.toString());
         let letter = currTile.innerText;
 
-        //Is it in the correct position?
+        // ¿Está en la posición correcta?
         if (word[c] == letter) {
             currTile.classList.add("correct");
 
@@ -279,7 +292,7 @@ function update() {
             keyTile.classList.add("correct");
 
             correct += 1;
-            letterCount[letter] -= 1; //deduct the letter count
+            letterCount[letter] -= 1;
         }
 
         if (correct == width) {
@@ -288,23 +301,21 @@ function update() {
     }
 
     console.log(letterCount);
-    //go again and mark which ones are present but in wrong position
+    // Segunda iteración, marcar las que están presentes pero en posición incorrecta
     for (let c = 0; c < width; c++) {
         let currTile = document.getElementById(row.toString() + '-' + c.toString());
         let letter = currTile.innerText;
 
-        // skip the letter if it has been marked correct
         if (!currTile.classList.contains("correct")) {
-            //Is it in the word?         //make sure we don't double count
             if (word.includes(letter) && letterCount[letter] > 0) {
                 currTile.classList.add("present");
-                
+
                 let keyTile = document.getElementById("Key" + letter);
                 if (!keyTile.classList.contains("correct")) {
                     keyTile.classList.add("present");
                 }
                 letterCount[letter] -= 1;
-            } // Not in the word or (was in word but letters all used up to avoid overcount)
+            }
             else {
                 currTile.classList.add("absent");
                 let keyTile = document.getElementById("Key" + letter);
@@ -313,6 +324,6 @@ function update() {
         }
     }
 
-    row += 1; //start new row
-    col = 0; //start at 0 for new row
+    row += 1;
+    col = 0;
 }

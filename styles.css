@@ -88,3 +88,47 @@ hr{
     justify-content: center;
     align-items: center;
 }
+@media (max-width: 600px) {
+    #board {
+        width: 250px; /* Ajustar el ancho del tablero */
+        height: 300px; /* Ajustar la altura del tablero */
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+
+    .tile {
+        width: 40px; /* Ajustar el ancho de las celdas */
+        height: 40px; /* Ajustar la altura de las celdas */
+        margin: 1.5px;
+        font-size: 24px;
+    }
+
+    .keyboard-row {
+        width: 100%; /* Ajustar el ancho de la fila del teclado */
+        justify-content: center;
+    }
+
+    .key-tile, .enter-key-tile {
+        width: 28px; /* Ajustar el ancho de las teclas */
+        height: 32px; /* Ajustar la altura de las teclas */
+        font-size: 16px;
+        margin: 0.5px;
+    }
+
+    .enter-key-tile {
+        width: 58px; /* Ajustar el ancho de la tecla Enter */
+    }
+
+    #title {
+        font-size: 24px; /* Ajustar el tamaño del título */
+    }
+
+    hr {
+        width: 90%; /* Ajustar el ancho del separador horizontal */
+    }
+}
+@media (max-width: 400px) {
+    #title {
+        font-size: 20px; /* Ajustar el tamaño del título para pantallas más pequeñas */
+    }
+}
