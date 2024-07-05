@@ -303,6 +303,7 @@ function update() {
 
         if (correct == width) {
             gameOver = true;
+            document.getElementById("win-message").style.display = "block"; // Mostrar el mensaje de victoria
         }
     }
 
@@ -333,3 +334,4 @@ function update() {
     row += 1;
     col = 0;
 }
+

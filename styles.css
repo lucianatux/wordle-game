@@ -15,7 +15,6 @@ body{
     text-align: center;
 }
 .container-wordle{
-    background: #f1f1ff;
     margin-bottom: 20px;
 }
 .title-div{
@@ -85,8 +84,8 @@ body{
 
 
 .keyboard-row {
-    width: 400px;
-
+    width: 383px;
+background: #fff;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
