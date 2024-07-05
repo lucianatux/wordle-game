@@ -2,6 +2,20 @@ const restartButton = document.getElementById('restart');
 restartButton.addEventListener('click', function() {
     location.reload();
   });
+
+const rulesButton = document.getElementById('rules');
+rulesButton.addEventListener('click', function() {
+    let gameRules = document.getElementById("game-rules");
+            gameRules.style.display = "block"; 
+            setTimeout(() => {
+                gameRules.classList.add("visible"); // Aplicar el efecto de fade-in
+            }, 0);        
+});
+const closeGameRules = document.getElementById("close-game-rules");
+closeGameRules.addEventListener('click', function() {
+    let gameRules = document.getElementById("game-rules");
+            gameRules.style.display = "none"; 
+});
   
 
 
@@ -167,11 +181,11 @@ function intialize() {
         }
     }
 
-    // Crear el teclado
+    // Crear el teclado ⌫
     let keyboard = [
         ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
         ["A", "S", "D", "F", "G", "H", "J", "K", "L", "Ñ"],
-        ["Enter", "Z", "X", "C", "V", "B", "N", "M", "⌫"]
+        ["Enter", "Z", "X", "C", "V", "B", "N", "M", "Borrar"]
     ]
 
     for (let i = 0; i < keyboard.length; i++) {
@@ -263,7 +277,7 @@ function update() {
     console.log(guess);
 
     if (!guessList.includes(guess)) {
-        document.getElementById("answer").innerText = "Not in word list";
+        document.getElementById("answer").innerText = "Palabra no reconocida. Borre y pruebe con otra palabra";
         return;
     }
 

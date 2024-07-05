@@ -1,201 +1,260 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 75px;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 75px;
+}
 
-body{
-    overflow-x: hidden;
-    position: relative;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
+body {
+  overflow-x: hidden;
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
 }
-.container-wordle{
-    margin-bottom: 20px;
+.container-wordle {
+  margin-bottom: 20px;
 }
-.title-div{
-    padding-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.title-div {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-#wordle{
-    width: 50px !important;
-    margin-right: 20px;
+#wordle {
+  width: 50px !important;
+  margin-right: 20px;
 }
-#restart{
-    margin-left: 20px;
-    padding: 5px;
+#restart,
+#rules {
+  margin-left: 20px;
+  padding: 5px;
 }
-#restart-img{
-    width: 30px !important;
+#restart-img {
+  width: 30px !important;
+  box-shadow: 2px 2px 3px #111;
+  border-radius: 20px;
 }
-#restart-img:hover{
-    filter:saturate(140%);
-    box-shadow: 2px 2px 3px #111;
-    border-radius: 20px;
+#rules-img {
+  width: 33px !important;
+  box-shadow: 2px 2px 3px #111;
+  border-radius: 20px;
 }
-#restart-text{
-    font-size: 12px !important;
+#restart-img:hover,
+#rules-img:hover {
+  filter: hue-rotate(90deg);
 }
-#title{
-    font-size: 36px;
-    font-weight: bold;
-    letter-spacing: 2px;
+#restart-text,
+#rules-text {
+  font-size: 12px !important;
 }
-#board{
-    width: 350px;
-    height: 420px;
-    margin: 0 auto;
-    margin-top: 3px;
-    display: flex;
-    flex-wrap: wrap;
+#game-rules {
+  display: none;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 5px;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  background: #e8dac9;
+  text-align: left;
+  width: 450px;
+}
+#game-rules h2,
+#game-rules h4,
+#game-rules p {
+  padding: 5px;
+  line-height: 1.5;
+}
+#game-rules h2{
+    display: inline-flex;
+}
+h2 img{
+    width: 36px !important;
+    height: 36px !important;
+    margin-right: 5px;
+}
+#game-rules.visible {
+  display: block;
+  opacity: 1;
+}
+#close-game-rules{
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    width: 100%;
+}
+#close-game-rules:hover{
+    background: #42c0b5 ;
+    color: #fff;
+}
+#title {
+  font-size: 36px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+#board {
+  width: 350px;
+  height: 420px;
+  margin: 0 auto;
+  margin-top: 3px;
+  display: flex;
+  flex-wrap: wrap;
 }
 .tile {
-    /* Box */
-    border: 2px solid lightgray;
-    width: 60px;
-    height: 60px;
-    margin: 2.5px;
-    background: #fff;
+  /* Box */
+  border: 2px solid lightgray;
+  width: 60px;
+  height: 60px;
+  margin: 2.5px;
+  background: #fff;
 
-    /* Text */
-    color: black;
-    font-size: 36px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  /* Text */
+  color: black;
+  font-size: 36px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .correct {
-    background-color: #6AAA64;
-    color: white;
-    border-color: white;
+  background-color: #6aaa64;
+  color: white;
+  border-color: white;
 }
 
 .present {
-    background-color: #C9B458;
-    color: white;
-    border-color: white;
+  background-color: #c9b458;
+  color: white;
+  border-color: white;
 }
 
 .absent {
-    background-color: #787C7E;
-    color: white;
-    border-color:white;
+  background-color: #787c7e;
+  color: white;
+  border-color: white;
 }
 
-
 .keyboard-row {
-    width: 383px;
-background: #fff;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
+  width: 383px;
+  background: #fff;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .key-tile {
-    width: 36px;
-    height: 40px;
-    margin: 1px;
-    border: 1px solid lightgray;
+  width: 36px;
+  height: 40px;
+  margin: 1px;
+  border: 1px solid lightgray;
 
-    /* Text */
-    font-size: 20px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  /* Text */
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .enter-key-tile {
-    width: 76px;
-    height: 40px;
-    margin: 1px;
-    border: 1px solid lightgray;
+  width: 76px;
+  height: 40px;
+  margin: 1px;
+  border: 1px solid lightgray;
 
-    /* Text */
-    font-size: 20px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  /* Text */
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #win-message {
-    display: none;
-    position: fixed;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    font-size: 36px;
-    z-index: 1000; 
-    opacity: 0;
-    transition: opacity 1s ease-in-out; 
+  display: none;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 36px;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
 #win-message.visible {
-    display: block;
-    opacity: 1;
+  display: block;
+  opacity: 1;
 }
 
-#you-win{
-    background: #d34da2;
-    border-radius: 8px;
-    padding: 10px;
+#you-win {
+  background: #d34da2;
+  border-radius: 8px;
+  padding: 10px;
+}
+#KeyBorrar {
+  font-size: 10px;
 }
 @media (max-width: 600px) {
-    #board {
-        width: 250px; /* Ajustar el ancho del tablero */
-        height: 300px; /* Ajustar la altura del tablero */
-        margin: 0 auto;
-        margin-top: 10px;
-    }
+  #board {
+    width: 250px; /* Ajustar el ancho del tablero */
+    height: 300px; /* Ajustar la altura del tablero */
+    margin: 0 auto;
+    margin-top: 10px;
+  }
 
-    .tile {
-        width: 40px; /* Ajustar el ancho de las celdas */
-        height: 40px; /* Ajustar la altura de las celdas */
-        margin: 1.5px;
-        font-size: 24px;
-    }
+  .tile {
+    width: 40px; /* Ajustar el ancho de las celdas */
+    height: 40px; /* Ajustar la altura de las celdas */
+    margin: 1.5px;
+    font-size: 24px;
+  }
 
-    .keyboard-row {
-        width: 100%; /* Ajustar el ancho de la fila del teclado */
-        justify-content: center;
-    }
+  .keyboard-row {
+    width: 100%; /* Ajustar el ancho de la fila del teclado */
+    justify-content: center;
+  }
 
-    .key-tile, .enter-key-tile {
-        width: 28px; /* Ajustar el ancho de las teclas */
-        height: 32px; /* Ajustar la altura de las teclas */
-        font-size: 16px;
-        margin: 0.5px;
-    }
+  .key-tile,
+  .enter-key-tile {
+    width: 28px; /* Ajustar el ancho de las teclas */
+    height: 32px; /* Ajustar la altura de las teclas */
+    font-size: 16px;
+    margin: 0.5px;
+  }
 
-    .enter-key-tile {
-        width: 58px; /* Ajustar el ancho de la tecla Enter */
-    }
+  .enter-key-tile {
+    width: 58px; /* Ajustar el ancho de la tecla Enter */
+  }
 
-    #title {
-        font-size: 24px; /* Ajustar el tamaño del título */
-    }
+  #title {
+    font-size: 24px; /* Ajustar el tamaño del título */
+  }
 
-    hr {
-        width: 90%; /* Ajustar el ancho del separador horizontal */
-    }
-    #you-win{
-        font-size: 30px;
-    }
+  hr {
+    width: 90%; /* Ajustar el ancho del separador horizontal */
+  }
+  #you-win {
+    font-size: 30px;
+  }
 }
-@media (max-width: 400px) {
-    #title {
-        font-size: 20px; /* Ajustar el tamaño del título para pantallas más pequeñas */
-    }
+@media (max-width: 450px) {
+  #title {
+    font-size: 20px; /* Ajustar el tamaño del título para pantallas más pequeñas */
+  }
+  #game-rules {
+    width: 320px !important;
+    top: 50%;
+  }
 }

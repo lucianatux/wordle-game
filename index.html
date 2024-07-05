@@ -9,13 +9,34 @@
   </head>
   <body>
     <div class="container-wordle">
+      <div id="game-rules">
+        
+        <h2><img src="rules3.png" alt=""/>
+          Wordle. Reglas de juego</h2>
+        <h4>Objetivo:</h4>
+        <p>Adivinar una palabra secreta de cinco letras en seis intentos o menos.</p>
+        <h4>Cómo jugar:</h4>
+        <p>Ingresa una palabra de cinco letras.<br/>
+          Presiona "Enter".<br/>
+          El juego te mostrará las letras de tu palabra en tres colores:<br/>
+          ● Verde: La letra está en la palabra secreta y en la posición correcta.<br/>
+          ● Amarillo: La letra está en la palabra secreta, pero en una posición diferente.<br/>
+          ● Gris: La letra no está en la palabra secreta.<br/><br/>
+          Usa las pistas de color para adivinar la palabra secreta en cinco intentos más.</p>
+          <button id="close-game-rules">Aceptar</button>
+      </div>
       <div class="title-div">
         <img id="wordle" src="wordle.jpg" alt="" />
         <h1 id="title">Wordle</h1>
+        <div id="rules">
+          <img id="rules-img" src="rules3.png" alt=""/>
+          <p id="rules-text">Cómo<br/>jugar</p>
+        </div>
         <div id="restart">
-          <img id="restart-img" src="actualizar.png" alt="" title="reiniciar juego" />
+          <img id="restart-img" src="actualizar.png" alt="" />
           <p id="restart-text">Nuevo<br/> juego</p>
         </div>
+        
       </div>
       <div id="win-message" >
         <h2 id="you-win">¡Ganaste!</h2>
@@ -24,7 +45,9 @@
       <br />
       <div id="board"></div>
       <br />
-      <h1 id="answer"></h1>
+      <div id="answer-div">
+        <h4 id="answer"></h4>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
