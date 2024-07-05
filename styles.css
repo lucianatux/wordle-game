@@ -28,11 +28,19 @@ body{
     margin-right: 20px;
 }
 #restart{
-    width: 30px !important;
     margin-left: 20px;
+    padding: 5px;
 }
-#restart:hover{
+#restart-img{
+    width: 30px !important;
+}
+#restart-img:hover{
     filter:saturate(140%);
+    box-shadow: 2px 2px 3px #111;
+    border-radius: 20px;
+}
+#restart-text{
+    font-size: 12px !important;
 }
 #title{
     font-size: 36px;
@@ -132,7 +140,7 @@ background: #fff;
     z-index: 1000; 
 }
 #you-win{
-    background: #d34da2dd;
+    background: #d34da2cc;
     border-radius: 8px;
     padding: 10px;
 }
@@ -173,6 +181,9 @@ background: #fff;
 
     hr {
         width: 90%; /* Ajustar el ancho del separador horizontal */
+    }
+    #you-win{
+        font-size: 30px;
     }
 }
 @media (max-width: 400px) {
