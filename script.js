@@ -165,6 +165,8 @@ guessList = guessList.concat(wordList);
 var word = wordList[Math.floor(Math.random() * wordList.length)].toUpperCase();
 console.log(word);
 
+let correct = 0; 
+
 window.onload = function () {
     intialize();
 }
@@ -185,7 +187,7 @@ function intialize() {
     let keyboard = [
         ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
         ["A", "S", "D", "F", "G", "H", "J", "K", "L", "Ñ"],
-        ["Enter", "Z", "X", "C", "V", "B", "N", "M", "Borrar"]
+        ["Enter", "Z", "X", "C", "V", "B", "N", "M", "⌫"]
     ]
 
     for (let i = 0; i < keyboard.length; i++) {
@@ -232,7 +234,9 @@ function processKey() {
 }
 
 function processInput(e) {
-    if (gameOver) return;
+    if (gameOver){
+        return;
+    } 
 
     let keyPressed = e.code.replace("Key", "");
 
@@ -257,9 +261,24 @@ function processInput(e) {
         update();
     }
 
-    if (!gameOver && row == height) {
+
+    if (!gameOver && row === height) {
         gameOver = true;
         document.getElementById("answer").innerText = word;
+
+        if (correct !== width) {
+            let lossMessage = document.getElementById("loss-message");
+            lossMessage.style.display = "block"; 
+            setTimeout(() => {
+                lossMessage.classList.add("visible"); 
+            }, 0); 
+            setTimeout(() => {
+                lossMessage.classList.remove("visible"); 
+            }, 30000); 
+            setTimeout(() => {
+                lossMessage.style.display = "none"; 
+            }, 31000); 
+        }
     }
 }
 
@@ -282,7 +301,7 @@ function update() {
     }
 
     // Procesar la adivinanza
-    let correct = 0;
+    correct = 0; // Reiniciar 'correct' cada vez que se llama a update
 
     let letterCount = {};
     for (let i = 0; i < word.length; i++) {
@@ -362,4 +381,3 @@ function update() {
     row += 1;
     col = 0;
 }
-

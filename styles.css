@@ -197,12 +197,38 @@ h2 img{
   display: block;
   opacity: 1;
 }
-
 #you-win {
-  background: #d34da2;
-  border-radius: 8px;
-  padding: 10px;
-}
+    background: #d34da2;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+#loss-message {
+    display: none;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 36px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  #loss-message.visible {
+    display: block;
+    opacity: 1;
+  }
+  #you-lose {
+    background: #2cb25d;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 30px;
+  }
+
 #KeyBorrar {
   font-size: 10px;
 }
@@ -247,6 +273,9 @@ h2 img{
   }
   #you-win {
     font-size: 30px;
+  }
+  #you-loose{
+    font-size: 20px;
   }
 }
 @media (max-width: 450px) {
