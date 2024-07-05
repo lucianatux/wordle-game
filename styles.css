@@ -118,6 +118,24 @@ background: #fff;
     justify-content: center;
     align-items: center;
 }
+
+#win-message {
+    display: none;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 36px;
+    z-index: 1000; 
+}
+#you-win{
+    background: #d34da2dd;
+    border-radius: 8px;
+    padding: 10px;
+}
 @media (max-width: 600px) {
     #board {
         width: 250px; /* Ajustar el ancho del tablero */
