@@ -133,14 +133,22 @@ background: #fff;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: #fff;
     padding: 20px;
     border-radius: 10px;
     font-size: 36px;
     z-index: 1000; 
+    opacity: 0;
+    transition: opacity 1s ease-in-out; 
 }
+
+#win-message.visible {
+    display: block;
+    opacity: 1;
+}
+
 #you-win{
-    background: #d34da2cc;
+    background: #d34da2;
     border-radius: 8px;
     padding: 10px;
 }

@@ -300,11 +300,25 @@ function update() {
             correct += 1;
             letterCount[letter] -= 1;
         }
-
         if (correct == width) {
             gameOver = true;
-            document.getElementById("win-message").style.display = "block"; // Mostrar el mensaje de victoria
+            let winMessage = document.getElementById("win-message");
+            winMessage.style.display = "block"; // Mostrar el mensaje de victoria
+        
+            setTimeout(() => {
+                winMessage.classList.add("visible"); // Aplicar el efecto de fade-in
+            }, 0); // Retrasar la adición de la clase para permitir que la transición se ejecute
+        
+            setTimeout(() => {
+                winMessage.classList.remove("visible"); // Aplicar el efecto de fade-out
+            }, 6000); // Esperar 7 segundos antes de iniciar el fade-out
+        
+            setTimeout(() => {
+                winMessage.style.display = "none"; // Esconder el mensaje después del fade-out
+            }, 7000); // Esperar un segundo más para completar la transición antes de esconder el mensaje
         }
+        
+        
     }
 
     console.log(letterCount);
